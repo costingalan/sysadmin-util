@@ -98,6 +98,24 @@ Example:
 
 
 
+expand-ipv6
+-----------
+
+Expand an abbreviated/compressed IPv6 address to the full-form.
+
+Example:
+
+     ./expand-ipv6 fe80::1 2001:41c8:10b:103::111
+     fe80:0000:0000:0000:0000:0000:0001
+     2001:41c8:010b:0103:0000:0000:0111
+
+Alternatives:
+
+* `sipcalc`
+* ...
+
+
+
 graphite_send
 -------------
 
@@ -306,6 +324,32 @@ Example:
      publickey
 
 
+
+ssh-test
+--------
+
+Test whether `ssh` connections to a list of hosts will succeed, by testing
+each in order.
+
+Example:
+
+     $ ./ssh-test host.list.txt
+     ssh.steve.org.uk    ... OK
+     www.steve.org.uk    ... OK
+     foo.example.com:222 ... OK
+
+     $ cat host.list.txt
+     ssh.steve.org.uk
+     www.steve.org.uk
+     foo.example.com:222
+
+The format of the input-file is:
+
+    [user@]hostname1[:port]
+    [user@]hostname2[:port]
+    ..
+
+
 splay
 -----
 
@@ -390,7 +434,7 @@ Trivial (ba)sh alternatives:
 when-up
 -------
 
-Waits until a given host is online (determined by ping until executing a given command)
+Waits until a given host is online, determined by ping, until executing a given command.
 
 Example:
 
